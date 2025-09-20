@@ -70,4 +70,18 @@ public class VeiculoController(IMediator mediator, IMapper mapper) : ControllerB
 
         return Ok(response);
     }
+
+    [HttpGet("{ticket:guid}")]
+    public async Task<ActionResult<SelecionarVeiculoPorIdQuery>> SelecionarPorId(Guid ticket)
+    {
+        var query = new SelecionarVeiculoPorIdQuery(ticket);
+
+        var result = await mediator.Send(query);
+
+        if (result.IsFailed)
+            return NotFound(ticket);
+
+        return Ok(result.Value);
+    }
+
 }

@@ -19,5 +19,16 @@ public class VeiculoMappingProfile : Profile
 
         // Domain -> Result
         CreateMap<Veiculo, EditarVeiculoResult>();
+
+        CreateMap<Veiculo, SelecionarVeiculoPorIdResult>()
+            .ConvertUsing(src => new SelecionarVeiculoPorIdResult(
+                src.Ticket,
+                src.Placa ?? "",
+                src.Modelo ?? "",
+                src.Cor ?? "",
+                src.CpfHospede ?? "",
+                src.Observacoes,
+                src.DataEntrada
+            ));
     }
 }

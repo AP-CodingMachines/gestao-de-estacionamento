@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using GestaoDeEstacionamento.Core.Aplicacao.ModuloVeiculo.Commands;
+using GestaoDeEstacionamento.Core.Dominio.ModuloCheckIn;
 using GestaoDeEstacionamento.WebAPI.Models.ModuloVeiculo;
 
 namespace GestaoDeEstacionamento.WebAPI.AutoMapper;
@@ -43,6 +44,17 @@ public class VeiculoRequestMappingProfile : Profile
                 src.Cor,
                 src.CpfHospede,
                 src.Observacoes,
+                src.DataEntrada
+            ));
+
+        CreateMap<Veiculo, SelecionarVeiculoPorIdResponse>()
+            .ConvertUsing(src => new SelecionarVeiculoPorIdResponse(
+                src.Ticket,
+                src.Placa ?? "",
+                src.Modelo ?? "",
+                src.Cor ?? "",
+                src.CpfHospede ?? "",
+                src.Observacoes ?? "",
                 src.DataEntrada
             ));
     }
