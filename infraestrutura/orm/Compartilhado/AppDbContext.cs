@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Reflection;
 
-namespace GestaoDeEstacionamento.Infraestrutura.ORM.Compartilhado;
+namespace GestaoDeEstacionamento.Infraestrutura.Orm.Compartilhado;
 
 public class AppDbContext(DbContextOptions options, ITenantProvider? tenantProvider = null) : IdentityDbContext<Usuario, Cargo, Guid>(options), IUnitOfWork
 {

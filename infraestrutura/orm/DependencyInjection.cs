@@ -1,5 +1,7 @@
 using GestaoDeEstacionamento.Core.Dominio.Compartilhado;
-using GestaoDeEstacionamento.Infraestrutura.ORM.Compartilhado;
+using GestaoDeEstacionamento.Core.Dominio.ModuloCheckIn;
+using GestaoDeEstacionamento.Infraestrutura.Orm.Compartilhado;
+using GestaoDeEstacionamento.Infraestrutura.Orm.ModuloCheckIn;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +15,8 @@ public static class DependencyInjection
         // Area para adicionar os Scopeds, exemplo: services.AddScoped<IRepositorioExemplo, RepositorioExemploORM>();
 
         services.AddEntityFrameworkConfig(configuration);
+
+        services.AddScoped<IRepositorioVeiculo, RepositorioVeiculoEmOrm>();
 
         return services;
     }

@@ -1,6 +1,6 @@
 using GestaoDeEstacionamento.Core.Aplicacao.ModuloAutenticacao;
 using GestaoDeEstacionamento.Core.Dominio.ModuloAutenticacao;
-using GestaoDeEstacionamento.Infraestrutura.ORM.Compartilhado;
+using GestaoDeEstacionamento.Infraestrutura.Orm.Compartilhado;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;

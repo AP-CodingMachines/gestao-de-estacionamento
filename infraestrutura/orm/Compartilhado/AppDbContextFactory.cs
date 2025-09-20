@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace GestaoDeEstacionamento.Infraestrutura.ORM.Compartilhado;
+namespace GestaoDeEstacionamento.Infraestrutura.Orm.Compartilhado;
 
 public static class AppDbContextFactory
 {

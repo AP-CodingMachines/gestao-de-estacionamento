@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoDeEstacionamento.Core
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoDeEstacionamento.Core.Dominio", "core\dominio\GestaoDeEstacionamento.Core.Dominio.csproj", "{A50D8BC2-8BA1-26B8-D6B1-72B5B854E3BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoDeEstacionamento.Infraestrutura.ORM", "infraestrutura\orm\GestaoDeEstacionamento.Infraestrutura.ORM.csproj", "{3E1CD0A7-3BA4-6708-D5F4-08F457A52793}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoDeEstacionamento.Infraestrutura.Orm", "infraestrutura\orm\GestaoDeEstacionamento.Infraestrutura.Orm.csproj", "{3E1CD0A7-3BA4-6708-D5F4-08F457A52793}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenGenerator", "utilitarios\token_generator\TokenGenerator.csproj", "{487FDED8-94B2-D7D4-06B6-EC39BA5D15DF}"
 EndProject

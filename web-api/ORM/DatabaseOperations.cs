@@ -1,4 +1,4 @@
-using GestaoDeEstacionamento.Infraestrutura.ORM.Compartilhado;
+using GestaoDeEstacionamento.Infraestrutura.Orm.Compartilhado;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestaoDeEstacionamento.WebAPI.ORM;
