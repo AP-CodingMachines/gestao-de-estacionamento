@@ -1,10 +1,10 @@
-﻿using AutoMapper;
-using FluentResults;
-using GestaoDeEstacionamento.Core.Aplicacao.ModuloVeiculo.Commands;
+﻿using GestaoDeEstacionamento.Core.Aplicacao.ModuloVeiculo.Commands;
 using GestaoDeEstacionamento.WebAPI.Models.ModuloVeiculo;
-using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using FluentResults;
+using AutoMapper;
+using MediatR;
 
 namespace GestaoDeEstacionamento.WebAPI.Controllers;
 
@@ -43,5 +43,31 @@ public class VeiculoController(IMediator mediator, IMapper mapper) : ControllerB
         {
             return Problem(ex.Message, statusCode: 500);
         }
+    }
+
+    [HttpPut("{ticket:guid}")]
+    public async Task<ActionResult<EditarVeiculoResponse>> Editar(Guid ticket, EditarVeiculoRequest request)
+    {
+        var command = mapper.Map<(Guid, EditarVeiculoRequest), EditarVeiculoCommand>((ticket, request));
+
+        var result = await mediator.Send(command);
+
+        if (result.IsFailed)
+        {
+            if (result.HasError(e => e.HasMetadataKey("TipoErro")))
+            {
+                var errosDeValidacao = result.Errors
+                    .SelectMany(e => e.Reasons.OfType<IError>())
+                    .Select(e => e.Message);
+
+                return BadRequest(errosDeValidacao);
+            }
+
+            return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+
+        var response = mapper.Map<EditarVeiculoResponse>(result.Value);
+
+        return Ok(response);
     }
 }

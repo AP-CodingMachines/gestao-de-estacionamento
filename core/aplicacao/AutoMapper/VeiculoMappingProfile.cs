@@ -13,5 +13,11 @@ public class VeiculoMappingProfile : Profile
 
         // Domain -> Result
         CreateMap<Veiculo, CadastrarVeiculoResult>();
+
+        // Command -> Domain
+        CreateMap<EditarVeiculoCommand, Veiculo>();
+
+        // Domain -> Result
+        CreateMap<Veiculo, EditarVeiculoResult>();
     }
 }

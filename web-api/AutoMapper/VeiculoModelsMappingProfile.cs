@@ -23,7 +23,27 @@ public class VeiculoRequestMappingProfile : Profile
                 src.DataEntrada
             ));
 
-        // Se futuramente tiver mais operações (Editar, Excluir, Selecionar, etc.),
-        // basta seguir o mesmo padrão daqui pra frente.
+        // Request -> Command (Editar)
+        CreateMap<(Guid, EditarVeiculoRequest), EditarVeiculoCommand>()
+            .ConvertUsing(src => new EditarVeiculoCommand(
+                src.Item1,
+                src.Item2.Placa,
+                src.Item2.Modelo,
+                src.Item2.Cor,
+                src.Item2.CpfHospede,
+                src.Item2.Observacoes
+            ));
+
+        // Result -> Response (Editar)
+        CreateMap<EditarVeiculoResult, EditarVeiculoResponse>()
+            .ConvertUsing(src => new EditarVeiculoResponse(
+                src.Ticket,
+                src.Placa,
+                src.Modelo,
+                src.Cor,
+                src.CpfHospede,
+                src.Observacoes,
+                src.DataEntrada
+            ));
     }
 }
